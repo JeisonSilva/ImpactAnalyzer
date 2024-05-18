@@ -9,6 +9,8 @@ var modifiedFiles = changes.Where(c => c.Status == ChangeKind.Modified).Select(c
 
 foreach (var file in modifiedFiles)
 {
-    
     Console.WriteLine($"Diff for {file}");
+    // transforma o arquivo em um blob
+    var oldBlob = repo.Lookup<Blob>(changes.Single(c => c.Path == file).Oid);
+    Console.WriteLine($"Old: {oldBlob.GetContentText()}");
 }
