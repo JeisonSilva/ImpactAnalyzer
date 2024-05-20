@@ -14,7 +14,8 @@ namespace impactAnalyzer.console
                     var syntaxTree = await item.GetSyntaxTreeAsync();
                     var root = await syntaxTree.GetRootAsync();
 
-                    foreach (var method in root.DescendantNodes().OfType<MethodDeclarationSyntax>())
+                    var metodos = root.DescendantNodes().OfType<MethodDeclarationSyntax>();
+                    foreach (var method in metodos )
                     {
                         Console.WriteLine($"Method: {method.Identifier.ValueText}");
                     }
