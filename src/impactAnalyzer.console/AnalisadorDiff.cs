@@ -22,6 +22,12 @@ namespace impactAnalyzer.console
                         var methodSymbol = semanticModel.GetDeclaredSymbol(method);
                         if (methodSymbol != null){
                             var references = await SymbolFinder.FindReferencesAsync(methodSymbol, solution);
+                            
+                            var methodText = method.ToFullString();
+                            Console.WriteLine($"Method: {method.Identifier.Text}");
+                            Console.WriteLine("Code:");
+                            Console.WriteLine(methodText);
+                            Console.WriteLine();
 
                             foreach (var reference in references)
                             {
