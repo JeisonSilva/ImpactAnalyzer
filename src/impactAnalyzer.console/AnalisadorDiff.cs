@@ -52,6 +52,7 @@ namespace impactAnalyzer.console
             foreach (var s in symbol)
             {
                 var references = await SymbolFinder.FindReferencesAsync(s, solution);
+                Console.WriteLine($"References for {s.Name}:");
                 ExibirReferencias(references);
             }
         }
