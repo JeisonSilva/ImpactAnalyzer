@@ -1,4 +1,5 @@
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace impactAnalyzer.console
 {
@@ -12,6 +13,11 @@ namespace impactAnalyzer.console
                 {
                     var syntaxTree = await item.GetSyntaxTreeAsync();
                     var root = await syntaxTree.GetRootAsync();
+
+                    foreach (var method in root.DescendantNodes().OfType<MethodDeclarationSyntax>())
+                    {
+                        Console.WriteLine($"Method: {method.Identifier.ValueText}");
+                    }
                 }
                 catch (System.Exception ex)
                 {
