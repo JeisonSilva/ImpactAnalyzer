@@ -17,7 +17,7 @@ namespace impactAnalyzer.console
                     var metodos = root.DescendantNodes().OfType<MethodDeclarationSyntax>();
                     foreach (var method in metodos )
                     {
-                        Console.WriteLine($"Method: {method.Identifier.ValueText}");
+                        Console.WriteLine($"Method: {method.Identifier}");
                     }
                 }
                 catch (System.Exception ex)
