@@ -6,6 +6,12 @@ namespace impactAnalyzer.console
 {
     public class AnalisadorDiff
     {
+        private List<ISymbol> _modifiedMethods;
+
+        public AnalisadorDiff()
+        {
+            _modifiedMethods = new List<ISymbol>();
+        }
         public async Task AnalisarMetodo(List<Document> documents, Solution solution)
         {
             foreach (var item in documents)
@@ -22,14 +28,15 @@ namespace impactAnalyzer.console
                         var methodSymbol = semanticModel.GetDeclaredSymbol(method);
                         if (methodSymbol != null)
                         {
-                            var references = await SymbolFinder.FindReferencesAsync(methodSymbol, solution);
-
-                            var methodText = method.ToFullString();
-                            Console.WriteLine($"Method: {method.Identifier.Text}");
-                            Console.WriteLine("Code:");
-                            Console.WriteLine(methodText);
-                            Console.WriteLine();
-                            ExibirReferencias(references);
+                            _modifiedMethods.Add(methodSymbol);
+                            //var references = await SymbolFinder.FindReferencesAsync(methodSymbol, solution);
+//
+                            //var methodText = method.ToFullString();
+                            //Console.WriteLine($"Method: {method.Identifier.Text}");
+                            //Console.WriteLine("Code:");
+                            //Console.WriteLine(methodText);
+                            //Console.WriteLine();
+                            await ExibirReferencias(_modifiedMethods, solution);
                         }
                     }
                 }
@@ -37,6 +44,15 @@ namespace impactAnalyzer.console
                 {
                     Console.WriteLine($"Error: {ex.Message}");
                 }
+            }
+        }
+
+        private async Task ExibirReferencias(IEnumerable<ISymbol> symbol, Solution solution)
+        {
+            foreach (var s in symbol)
+            {
+                var references = await SymbolFinder.FindReferencesAsync(s, solution);
+                ExibirReferencias(references);
             }
         }
 
@@ -57,5 +73,6 @@ namespace impactAnalyzer.console
                 }
             }
         }
+
     }
 }
