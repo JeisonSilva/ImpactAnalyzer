@@ -20,7 +20,7 @@ namespace impactAnalyzer.console
             var solution = await workspace.OpenSolutionAsync("/home/jeison/Documentos/projetos/ImpactAnalyzer/ImpactAnalyzer.sln");
 
             var oldCommit = repo.Branches["main"].Tip;
-            var newCommit = repo.Branches["feature/CloneArquivoDiff"].Tip;
+            var newCommit = repo.Branches["feature/Analisador"].Tip;
             var changes = repo.Diff.Compare<TreeChanges>(oldCommit.Tree, newCommit.Tree);
             var modifiedFiles = changes.Where(c => c.Status == ChangeKind.Modified).Select(c => c.Path).ToList();
 
@@ -36,7 +36,7 @@ namespace impactAnalyzer.console
                     return isMatch;
                 }).ToList();
 
-                await _analisadorDiff.AnalisarMetodo(documents);
+                await _analisadorDiff.AnalisarMetodo(documents, solution);
 
             }
         }                                                                                         
