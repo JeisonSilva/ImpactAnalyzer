@@ -15,12 +15,12 @@ namespace impactAnalyzer.console
 
         public async Task ProcessarMudancas()
         {
-            var repo = new Repository("/home/jeison/Documentos/projetos/ImpactAnalyzer/.git");
+            var repo = new Repository("/home/jeison/Documentos/projetos/Moq.AutoMocker/.git");
             var workspace = MSBuildWorkspace.Create();
             var solution = await workspace.OpenSolutionAsync("/home/jeison/Documentos/projetos/ImpactAnalyzer/ImpactAnalyzer.sln");
 
             var oldCommit = repo.Branches["main"].Tip;
-            var newCommit = repo.Branches["feature/ReferenciasMetodo"].Tip;
+            var newCommit = repo.Branches["feature/TestesReferencia"].Tip;
             var changes = repo.Diff.Compare<TreeChanges>(oldCommit.Tree, newCommit.Tree);
             var modifiedFiles = changes.Where(c => c.Status == ChangeKind.Modified).Select(c => c.Path).ToList();
 
