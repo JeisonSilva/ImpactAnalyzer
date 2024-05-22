@@ -15,7 +15,7 @@ namespace impactAnalyzer.console
 
         public async Task ProcessarMudancas()
         {
-            var repo = new Repository("/home/jeison/Documentos/projetos/ImpactAnalyzer/.git");
+            var repo = new Repository("/home/jeison/Documentos/projetos/Moq.AutoMocker/.git");
             var workspace = MSBuildWorkspace.Create();
             var solution = await workspace.OpenSolutionAsync("/home/jeison/Documentos/projetos/ImpactAnalyzer/ImpactAnalyzer.sln");
 
