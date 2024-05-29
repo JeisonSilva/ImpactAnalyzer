@@ -12,7 +12,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  restore:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,10 +23,6 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
-
-  build:
-    runs-on: ubuntu-latest
-    needs: restore
 
     steps:
     - uses: actions/checkout@v4
@@ -48,4 +44,4 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --verbosity normal
