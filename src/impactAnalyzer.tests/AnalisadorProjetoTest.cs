@@ -22,18 +22,35 @@ namespace impactAnalyzer.tests
         [Fact]
         public async Task DeveRetornarUmMetodoAnalisado()
         {
-           
+            string? directory = RetornarDiretorioSolucao();
+
+            var grupoProjeto = new GrupoProjeto(new[] { @$"--path-solution={directory}\ImpactAnalyzer.sln" });
+            var metodo = new Metodo(new[] { "--metodo=Analisar" });
+
+            var metodoReferente = await _analisadorProjeto.Analisar(metodo, grupoProjeto);
+
+            metodoReferente.SelectMany(x => x.Key).Should().Contain((string)metodo);
+
+        }
+
+        private static string? RetornarDiretorioSolucao()
+        {
             var directory = Directory.GetCurrentDirectory();
             for (int i = 0; i < 5; i++)
-                directory = Directory.GetParent(directory)?.FullName;
+            {
 
-            var grupoProjeto = new GrupoProjeto(new[]{@$"--path-solution={directory}\ImpactAnalyzer.sln"});
-             var metodo = new Metodo(new[]{"--metodo=Analisar"});
+                if (Directory.GetParent(directory)?.Name.Equals("ImpactAnalyzer", StringComparison.CurrentCultureIgnoreCase) == true)
+                {
+                    directory = Directory.GetParent(directory)?.FullName;
+                    break;
+                }
+                else
+                {
+                    directory = Directory.GetParent(directory)?.FullName;
+                }
+            }
 
-           var metodoReferente = await _analisadorProjeto.Analisar(metodo, grupoProjeto);
-
-           metodoReferente.SelectMany(x=>x.Key).Should().Contain((string)metodo);
-
+            return directory;
         }
 
         [Fact]
