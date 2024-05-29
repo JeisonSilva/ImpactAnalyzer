@@ -24,7 +24,7 @@ namespace impactAnalyzer.tests
         {
             string? directory = RetornarDiretorioSolucao();
 
-            var grupoProjeto = new GrupoProjeto(new[] { @$"--path-solution={directory}\ImpactAnalyzer.sln" });
+            var grupoProjeto = new GrupoProjeto(new[] { @$"--path-solution={directory}/ImpactAnalyzer.sln" });
             var metodo = new Metodo(new[] { "--metodo=Analisar" });
 
             var metodoReferente = await _analisadorProjeto.Analisar(metodo, grupoProjeto);
