@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AF6D9612-DF8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "impactAnalyzer.console", "src\impactAnalyzer.console\impactAnalyzer.console.csproj", "{C02B2304-D3D5-4C8C-BAB5-D3C769D24A1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "impactAnalyzer.tests", "src\impactAnalyzer.tests\impactAnalyzer.tests.csproj", "{1095E137-519C-487D-AE36-44343AE5A2F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "impactAnalyzer", "src\impactAnalyzer\impactAnalyzer.csproj", "{63D56C5D-C55F-4546-A37E-90C1BBE178C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,18 @@ Global
 		{C02B2304-D3D5-4C8C-BAB5-D3C769D24A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C02B2304-D3D5-4C8C-BAB5-D3C769D24A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C02B2304-D3D5-4C8C-BAB5-D3C769D24A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1095E137-519C-487D-AE36-44343AE5A2F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1095E137-519C-487D-AE36-44343AE5A2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1095E137-519C-487D-AE36-44343AE5A2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1095E137-519C-487D-AE36-44343AE5A2F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63D56C5D-C55F-4546-A37E-90C1BBE178C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63D56C5D-C55F-4546-A37E-90C1BBE178C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63D56C5D-C55F-4546-A37E-90C1BBE178C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63D56C5D-C55F-4546-A37E-90C1BBE178C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C02B2304-D3D5-4C8C-BAB5-D3C769D24A1A} = {AF6D9612-DF88-4C63-B878-EFF816F153C9}
+		{1095E137-519C-487D-AE36-44343AE5A2F7} = {AF6D9612-DF88-4C63-B878-EFF816F153C9}
+		{63D56C5D-C55F-4546-A37E-90C1BBE178C4} = {AF6D9612-DF88-4C63-B878-EFF816F153C9}
 	EndGlobalSection
 EndGlobal
