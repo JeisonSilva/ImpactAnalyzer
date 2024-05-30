@@ -1,5 +1,7 @@
 # ImpactAnalyzer
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jeisonsilva-github_impactanalyzer&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=jeisonsilva-github_impactanalyzer)
 
+[![.NET](https://github.com/JeisonSilva/ImpactAnalyzer/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/JeisonSilva/ImpactAnalyzer/actions/workflows/dotnet.yml)
 
 
 ImpactAnalyzer é uma ferramenta de linha de comando (.NET CLI) desenvolvida para analisar o impacto de alterações em métodos dentro de uma solução .NET. Esta ferramenta ajuda desenvolvedores a identificar todos os métodos que são afetados por uma alteração em um método específico, proporcionando uma visão clara do impacto potencial da mudança.
